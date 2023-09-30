@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Film list</title>
+    </head>
+    <body>
+        <h1>Film list</h1>
+            {% if film_list %}
+                <table>
+                    <tr>
+                        <th>Icon</th>
+                        <th>Name</th>
+                        <th>Short name</th>
+                    </tr>
+                    {% for film in film_list %}
+                    <tr>
+                        <td>
+                            {% if film.icon_uri %}
+                            <img src="{{ film.icon_uri }}">
+                            {% endif %}
+                        </td>
+                        <td>{{ film.name }}</td>
+                        <td>{{ film.short_name }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+            <p>No films are available</p>
+            {% endif %}
+    </body>
+</html>
