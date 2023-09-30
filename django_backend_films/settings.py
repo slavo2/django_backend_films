@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+URL_FOR_UPDATING_FILM_DATABASE = "https://gist.githubusercontent.com/nextsux/f6e0327857c88caedd2dab13affb72c1/raw/04441487d90a0a05831835413f5942d58026d321/videos.json"
+FILM_DATABASE_UPDATE_INTERVAL = 30
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
