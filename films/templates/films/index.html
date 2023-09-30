@@ -7,8 +7,18 @@
         <form action="{% url 'films:index' %}" method="get">
             <label for="filter_name">Filter by name</label>
             <input type="text" name="filter_name" id="filter_name" value="{{ filter_name }}">
+            <input type="hidden" name="order_by_name" id="order_by_name" value="{{ order_by_name }}">
             <input type="submit" value="Filter">
-            
+            {% if order_by_name == "ASC" %}
+                <input type="submit" value="Order by name descending" onclick="document.getElementById('order_by_name').value='DESC'">
+                <input type="submit" value="Remove order by name" onclick="document.getElementById('order_by_name').value=''">
+            {% elif order_by_name == "DESC" %}
+                <input type="submit" value="Order by name ascending" onclick="document.getElementById('order_by_name').value='ASC'">
+                <input type="submit" value="Remove order by name" onclick="document.getElementById('order_by_name').value=''">
+            {% else %}
+                <input type="submit" value="Order by name ascending" onclick="document.getElementById('order_by_name').value='ASC'">
+                <input type="submit" value="Order by name descending" onclick="document.getElementById('order_by_name').value='DESC'">
+            {% endif %}
         </form>
         <h1>Film list</h1>
             {% if film_list %}
