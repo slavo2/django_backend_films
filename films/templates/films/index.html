@@ -46,7 +46,11 @@
                     {% endfor %}
                 </table>
             {% else %}
-            <p>No films are available</p>
+                {% if filter_by_name %}
+                    <p>No films are available with given filter (try to remove it)</p>
+                {% else %}
+                    <p>No films are available</p>
+                {% endif %}
             {% endif %}
     </body>
 </html>
